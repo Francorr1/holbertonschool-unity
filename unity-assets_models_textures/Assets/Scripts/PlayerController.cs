@@ -13,10 +13,15 @@ public class PlayerController : MonoBehaviour
     public float playerSpeed = 2.0f;
     public float playerJump = 1.0f;
     public float gravity = -9.81f;
+    private Camera playerCamera;
+    public Transform playerPos;
+    public UnityEngine.Vector3 StartPos;
+
     // Start is called before the first frame update
     void Start()
     {
         player = GetComponent<CharacterController>();
+        playerCamera = Camera.main;
     }
 
     // Update is called once per frame
@@ -27,8 +32,16 @@ public class PlayerController : MonoBehaviour
         {
             playerVelocity.y = 0;
         }
+
+        UnityEngine.Vector3 forward = playerCamera.transform.forward;
+        UnityEngine.Vector3 right = playerCamera.transform.right;
+
+        forward.Normalize();
+        right.Normalize();
         
-        UnityEngine.Vector3 move = new UnityEngine.Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        UnityEngine.Vector3 moveInput = new UnityEngine.Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        UnityEngine.Vector3 move = (forward * moveInput.z + right * moveInput.x).normalized;
+
         player.Move(move * Time.deltaTime * playerSpeed);
 
         if (move != UnityEngine.Vector3.zero)
@@ -43,5 +56,10 @@ public class PlayerController : MonoBehaviour
 
         playerVelocity.y -= gravity * Time.deltaTime;
         player.Move(playerVelocity * Time.deltaTime);
+        
+        if (playerPos.position.y < (-25))
+        {
+            playerPos.position = StartPos;
+        }
     }
 }
