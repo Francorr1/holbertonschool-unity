@@ -736,7 +736,7 @@ GameObject:
   - component: {fileID: 695871400}
   - component: {fileID: 695871399}
   m_Layer: 5
-  m_Name: SFX
+  m_Name: SFXText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
