@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public Transform playerPos;
     public Transform playerModel;
     public UnityEngine.Vector3 StartPos;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +47,13 @@ public class PlayerController : MonoBehaviour
         {
             UnityEngine.Quaternion lookRotation = UnityEngine.Quaternion.LookRotation(new UnityEngine.Vector3(forward.x, 0f, forward.z));
             transform.rotation = UnityEngine.Quaternion.Slerp(transform.rotation, lookRotation, UnityEngine.Time.deltaTime * playerSpeed);
+
+            animator.SetBool("isRunning", true);
+        }
+
+        else
+        {
+            animator.SetBool("isRunning", false);
         }
 
         if (move != UnityEngine.Vector3.zero)
