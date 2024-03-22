@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public float gravity = -9.81f;
     private Camera playerCamera;
     public Transform playerPos;
+    public Transform playerModel;
     public UnityEngine.Vector3 StartPos;
 
     // Start is called before the first frame update
@@ -45,6 +46,12 @@ public class PlayerController : MonoBehaviour
         {
             UnityEngine.Quaternion lookRotation = UnityEngine.Quaternion.LookRotation(new UnityEngine.Vector3(forward.x, 0f, forward.z));
             transform.rotation = UnityEngine.Quaternion.Slerp(transform.rotation, lookRotation, UnityEngine.Time.deltaTime * playerSpeed);
+        }
+
+        if (move != UnityEngine.Vector3.zero)
+        {
+            float targetAngle = Mathf.Atan2(moveInput.x, moveInput.z) * Mathf.Rad2Deg + playerCamera.transform.eulerAngles.y;
+            playerModel.rotation = UnityEngine.Quaternion.Euler(0f, targetAngle, 0f);
         }
         
         if (Input.GetButtonDown("Jump") && groundedPlayer)
