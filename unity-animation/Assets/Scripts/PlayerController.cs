@@ -77,6 +77,15 @@ public class PlayerController : MonoBehaviour
         playerVelocity.y -= gravity * Time.deltaTime;
         player.Move(playerVelocity * Time.deltaTime);
         
+        if (playerPos.position.y < (-10))
+        {
+            animator.SetBool("isFalling", true);
+        }
+        if (groundedPlayer)
+        {
+            animator.SetBool("isFalling", false);
+        }
+
         if (playerPos.position.y < (-25))
         {
             playerPos.position = StartPos;
