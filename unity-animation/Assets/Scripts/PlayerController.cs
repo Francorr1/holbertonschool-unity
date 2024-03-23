@@ -30,6 +30,12 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         groundedPlayer = player.isGrounded;
+
+        if (groundedPlayer)
+        {
+            animator.SetBool("isJumping", false);
+        }
+
         if (groundedPlayer && playerVelocity.y < 0)
         {
             playerVelocity.y = 0;
@@ -65,6 +71,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && groundedPlayer)
         {
             playerVelocity.y = playerJump;
+            animator.SetBool("isJumping", true);
         }
 
         playerVelocity.y -= gravity * Time.deltaTime;
@@ -73,6 +80,12 @@ public class PlayerController : MonoBehaviour
         if (playerPos.position.y < (-25))
         {
             playerPos.position = StartPos;
+        }
+
+        if (playerModel.position.y != (playerPos.position.y - 1))
+        {
+            UnityEngine.Vector3 fix = new UnityEngine.Vector3(playerPos.position.x, (playerPos.position.y - 1f), playerPos.position.z);
+            playerModel.position = fix;
         }
     }
 }
