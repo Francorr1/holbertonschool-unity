@@ -81,6 +81,7 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("isFalling", true);
         }
+
         if (groundedPlayer)
         {
             animator.SetBool("isFalling", false);
