@@ -1431,7 +1431,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: f8275fc03b2dfe649a8d1f4e50c44514, type: 3}
   m_Controller: {fileID: 9100000, guid: 4288681faec9c7e4a8d2bdfd55fed834, type: 2}
-  m_CullingMode: 1
+  m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
@@ -1988,8 +1988,9 @@ MonoBehaviour:
   playerJump: 10
   gravity: 20
   playerPos: {fileID: 4270684162903154733}
-  playerModel: {fileID: 0}
+  playerModel: {fileID: -8679921383154817045}
   StartPos: {x: 0, y: 25, z: 0}
+  animator: {fileID: 5866666021909216657}
 --- !u!143 &219283783325301642
 CharacterController:
   m_ObjectHideFlags: 0

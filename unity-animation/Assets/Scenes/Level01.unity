@@ -303,11 +303,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 679831767}
   m_SourcePrefab: {fileID: 100100000, guid: 06748437520d64e4692d8cc2f7682822, type: 3}
---- !u!4 &81461002 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 73091c56ef1c6114bbb6779d6f89943e, type: 3}
-  m_PrefabInstance: {fileID: 4462767577964639248}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &121917982 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 06748437520d64e4692d8cc2f7682822, type: 3}
@@ -2319,11 +2314,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9080417f56a043f4ba28bf965a819ce5, type: 3}
   m_PrefabInstance: {fileID: 1150516523}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &887052481 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 73091c56ef1c6114bbb6779d6f89943e, type: 3}
-  m_PrefabInstance: {fileID: 4462767577964639248}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &895761738
 GameObject:
@@ -5225,10 +5215,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5866666021909216657, guid: 73091c56ef1c6114bbb6779d6f89943e, type: 3}
-      propertyPath: m_CullingMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7280106214635602631, guid: 73091c56ef1c6114bbb6779d6f89943e, type: 3}
       propertyPath: Camera
       value: 
@@ -5237,18 +5223,6 @@ PrefabInstance:
       propertyPath: PauseCanvas
       value: 
       objectReference: {fileID: 1387314299}
-    - target: {fileID: 7501243709183108630, guid: 73091c56ef1c6114bbb6779d6f89943e, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 887052481}
-    - target: {fileID: 7501243709183108630, guid: 73091c56ef1c6114bbb6779d6f89943e, type: 3}
-      propertyPath: playerModel
-      value: 
-      objectReference: {fileID: 81461002}
-    - target: {fileID: 7501243709183108630, guid: 73091c56ef1c6114bbb6779d6f89943e, type: 3}
-      propertyPath: GroundLevel.y
-      value: -1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
