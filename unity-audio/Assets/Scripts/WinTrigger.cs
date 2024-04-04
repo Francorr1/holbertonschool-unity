@@ -11,6 +11,8 @@ public class WinTrigger : MonoBehaviour
     public GameObject winCanvas;
     public GameObject finalTime;
 
+    public AudioSource BGM;
+
     void Start()
     {
         winCanvas.SetActive(false);
@@ -20,6 +22,7 @@ public class WinTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            BGM.Stop();
             timer.enabled = false;
             timerText.color = Color.green;
             timerText.fontSize = 60;

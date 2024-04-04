@@ -18,6 +18,9 @@ public class PlayerController : MonoBehaviour
     public Transform playerModel;
     public UnityEngine.Vector3 StartPos;
     public Animator animator;
+    public AudioSource runSFX;
+    public AudioSource landSFX;
+    bool soundPlayed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -77,7 +80,7 @@ public class PlayerController : MonoBehaviour
         playerVelocity.y -= gravity * Time.deltaTime;
         player.Move(playerVelocity * Time.deltaTime);
         
-        if (playerPos.position.y < (-10))
+        if (playerPos.position.y < (-5))
         {
             animator.SetBool("isFalling", true);
         }
@@ -96,6 +99,37 @@ public class PlayerController : MonoBehaviour
         {
             UnityEngine.Vector3 fix = new UnityEngine.Vector3(playerPos.position.x, (playerPos.position.y - 1f), playerPos.position.z);
             playerModel.position = fix;
+        }
+
+        if (runSFX.isPlaying == false)
+        {
+            if (animator.GetBool("isRunning") == true)
+            {
+                runSFX.Play();
+            }
+        }
+
+        if (animator.GetBool("isRunning") == false || animator.GetBool("isJumping") || animator.GetBool("isFalling"))
+        {
+            runSFX.Stop();
+        }
+
+        int animationHash = Animator.StringToHash("Falling Flat Impact");
+
+        bool playerFell = animator.GetCurrentAnimatorStateInfo(0).IsName("Falling Flat Impact");
+
+        if (playerFell)
+        {
+            if (landSFX.isPlaying == false && soundPlayed == false)
+            {
+                landSFX.Play();
+                soundPlayed = true;
+            }
+        }
+
+        if (animator.GetBool("isRunning") || animator.GetBool("isJumping") || animator.GetBool("isFalling"))
+        {
+            soundPlayed = false;
         }
     }
 }
